@@ -1,0 +1,282 @@
+{
+  "identifier" : "AttendanceSubscriptionsGroup",
+  "nonRenewingSubscriptions" : [ ],
+  "products" : [ ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "IND",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "error" : null
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "AttendanceSubscriptions",
+      "localizations" : [ ],
+      "name" : "Attendance Subscriptions",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "25",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_5",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 5 employees",
+              "displayName" : "Bronze Plan (5 Employees)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_5",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Bronze Monthly (5 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "50",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_10",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 10 employees",
+              "displayName" : "Silver Plan (10 Employees)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_10",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Silver Monthly (10 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "100",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_20",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 20 employees",
+              "displayName" : "Gold Plan (20 Employees)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_20",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Gold Monthly (20 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "250",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_50",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 50 employees",
+              "displayName" : "Platinum Plan (50 Employees)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_50",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Platinum Monthly (50 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "500",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_100",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 100 employees",
+              "displayName" : "Diamond Plan (100 Employees)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_100",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Diamond Monthly (100 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "1000",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "monthly_unlimited",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register unlimited employees",
+              "displayName" : "Enterprise Plan (Unlimited)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.monthly_unlimited",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Enterprise Monthly (Unlimited)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "250",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_5",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 5 employees",
+              "displayName" : "Bronze Plan (5 Employees - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_5",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Bronze Yearly (5 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "500",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_10",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 10 employees",
+              "displayName" : "Silver Plan (10 Employees - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_10",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Silver Yearly (10 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "1000",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_20",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 20 employees",
+              "displayName" : "Gold Plan (20 Employees - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_20",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Gold Yearly (20 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "2500",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_50",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 50 employees",
+              "displayName" : "Platinum Plan (50 Employees - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_50",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Platinum Yearly (50 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "5000",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_100",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register up to 100 employees",
+              "displayName" : "Diamond Plan (100 Employees - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_100",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Diamond Yearly (100 Emp)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        },
+        {
+          "adHocOffers" : [ ],
+          "codeOffers" : [ ],
+          "displayPrice" : "10000",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "yearly_unlimited",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Register unlimited employees",
+              "displayName" : "Enterprise Plan (Unlimited - Yearly)",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "in.leenaitsolutions.attendance.yearly_unlimited",
+          "recurringSubscriptionPeriod" : "P1Y",
+          "referenceName" : "Enterprise Yearly (Unlimited)",
+          "subscriptionGroupID" : "AttendanceSubscriptions",
+          "type" : "Recurring Subscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

@@ -1,0 +1,19 @@
+Analyzing mobile...                                             
+
+   info • The import of 'dart:typed_data' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/foundation.dart' • lib/screens/add_edit_employee_screen.dart:2:8 • unnecessary_import
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre • lib/screens/attendance_api_screen.dart:111:17 • deprecated_member_use
+   info • Unnecessary braces in a string interpolation • lib/screens/attendance_api_screen.dart:119:34 • unnecessary_brace_in_string_interps
+warning • Dead code • lib/screens/face_registration_screen.dart:426:5 • dead_code
+   info • Unnecessary braces in a string interpolation • lib/screens/face_scanner_screen.dart:227:34 • unnecessary_brace_in_string_interps
+   info • The type of the right operand ('ConnectivityResult') isn't a subtype or a supertype of the left operand ('List<ConnectivityResult>') • lib/screens/face_scanner_screen.dart:323:28 • unrelated_type_equality_checks
+   info • Don't use 'BuildContext's across async gaps • lib/screens/face_scanner_screen.dart:334:22 • use_build_context_synchronously
+warning • The value of the local variable 'cameras' isn't used • lib/screens/face_scanner_screen.dart:357:11 • unused_local_variable
+warning • Unused import: 'package:http/http.dart' • lib/screens/home_screen.dart:4:8 • unused_import
+   info • Unnecessary braces in a string interpolation • lib/screens/home_screen.dart:131:73 • unnecessary_brace_in_string_interps
+   info • 'Share' is deprecated and shouldn't be used. Use SharePlus instead • lib/screens/home_screen.dart:142:17 • deprecated_member_use
+   info • 'shareXFiles' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead • lib/screens/home_screen.dart:142:23 • deprecated_member_use
+   info • Unnecessary braces in a string interpolation • lib/screens/home_screen.dart:144:58 • unnecessary_brace_in_string_interps
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre • lib/screens/home_screen.dart:274:31 • deprecated_member_use
+   info • 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre • lib/screens/home_screen.dart:283:31 • deprecated_member_use
+
+15 issues found. (ran in 7.3s)
