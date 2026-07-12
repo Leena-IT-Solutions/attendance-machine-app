@@ -55,10 +55,10 @@ class _FaceScannerScreenState extends State<FaceScannerScreen> {
     _initializeCamera();
     _faceDetector = FaceDetector(
       options: FaceDetectorOptions(
-        performanceMode: FaceDetectorMode.accurate,
+        performanceMode: FaceDetectorMode.fast,
         enableClassification: true,
         minFaceSize:
-            0.05, // Allows scanning faces from further away (5% of the frame instead of the default 10%)
+            0.15, // Focuses only on close-up faces (15% of frame) to ignore background faces
       ),
     );
     _syncOfflineScans();
@@ -79,6 +79,9 @@ class _FaceScannerScreenState extends State<FaceScannerScreen> {
   }
 
   Future<void> _initializeCamera() async {
+    final settings = Provider.of<SettingsProvider>(context, listen: false);
+    final resolutionStr = settings.cameraResolution.toLowerCase();
+    
     try {
       _cameras = await availableCameras();
       if (_cameras.isEmpty) {
@@ -93,8 +96,20 @@ class _FaceScannerScreenState extends State<FaceScannerScreen> {
         );
         _selectedCameraIndex = frontIdx != -1 ? frontIdx : 0;
       }
-      // Always use high resolution for optimal face detection and recognition quality
-      const preset = ResolutionPreset.high;
+      // Read resolution from settings provider (defaults to medium) to speed up YUV array conversion
+      ResolutionPreset preset;
+      switch (resolutionStr) {
+        case 'low':
+          preset = ResolutionPreset.low;
+          break;
+        case 'medium':
+          preset = ResolutionPreset.medium;
+          break;
+        case 'high':
+        default:
+          preset = ResolutionPreset.high;
+          break;
+      }
 
       _controller = CameraController(
         _cameras[_selectedCameraIndex],
@@ -225,8 +240,8 @@ class _FaceScannerScreenState extends State<FaceScannerScreen> {
           );
           if (!mounted) return;
 
-          // Convert to JPEG and Base64
-          final jpegBytes = Uint8List.fromList(img.encodeJpg(croppedFace, quality: 90));
+          // Convert to JPEG and Base64 with optimized quality (75) to speed up encoding & network upload
+          final jpegBytes = Uint8List.fromList(img.encodeJpg(croppedFace, quality: 75));
           final base64Image = 'data:image/jpeg;base64,${base64Encode(jpegBytes)}';
 
           final now = DateTime.now();
