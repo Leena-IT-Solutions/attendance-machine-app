@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/iap_service.dart';
 
 class SubscriptionScreen extends StatefulWidget {
@@ -83,6 +84,19 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
     await _iapService.restorePurchases();
     if (mounted) {
       setState(() => _isActionLoading = false);
+    }
+  }
+
+  void _launchURL(String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      } else {
+        debugPrint('Could not launch $urlString');
+      }
+    } catch (e) {
+      debugPrint('Error launching url: $e');
     }
   }
 
@@ -340,6 +354,35 @@ class _SubscriptionScreenState extends State<SubscriptionScreen> {
                       'Subscriptions automatically renew. Cancel anytime in App Store / Google Play account settings.',
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white38, fontSize: 10),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () => _launchURL('https://attendance.infoleena.com/privacy-policy'),
+                          child: const Text(
+                            'Privacy Policy',
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                        const Text('  |  ', style: TextStyle(color: Colors.white24, fontSize: 10)),
+                        InkWell(
+                          onTap: () => _launchURL('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/'),
+                          child: const Text(
+                            'Terms of Use (EULA)',
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

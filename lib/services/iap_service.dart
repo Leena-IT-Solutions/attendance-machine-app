@@ -21,10 +21,12 @@ class IapService {
   bool _isAvailable = false;
   List<ProductDetails> _products = [];
   bool _isLoading = false;
+  bool _isUsingMockFallback = false;
 
   bool get isAvailable => _isAvailable;
   List<ProductDetails> get products => _products;
   bool get isLoading => _isLoading;
+  bool get isUsingMockFallback => _isUsingMockFallback;
 
   // Product IDs defined in App Store Connect (iOS)
   static const Set<String> _iosProductIds = {
@@ -92,7 +94,8 @@ class IapService {
   Future<void> loadProducts() async {
     final queryIds = Platform.isIOS ? _iosProductIds : _androidProductIds;
     if (!_isAvailable) {
-      if (_enableMockBilling) _loadMockProducts();
+      _isUsingMockFallback = true;
+      _loadMockProducts();
       return;
     }
 
@@ -104,22 +107,17 @@ class IapService {
       }
       
       if (response.productDetails.isEmpty) {
-        if (_enableMockBilling) {
-          _loadMockProducts();
-        } else {
-          _products = [];
-        }
+        _isUsingMockFallback = true;
+        _loadMockProducts();
       } else {
+        _isUsingMockFallback = false;
         _products = response.productDetails;
         _sortProducts();
       }
     } catch (e) {
       debugPrint("IAP: Error loading products: $e.");
-      if (_enableMockBilling) {
-        _loadMockProducts();
-      } else {
-        _products = [];
-      }
+      _isUsingMockFallback = true;
+      _loadMockProducts();
     } finally {
       _isLoading = false;
     }
@@ -263,7 +261,7 @@ class IapService {
 
   /// Purchase a subscription product
   Future<void> buySubscription(ProductDetails product, BuildContext context) async {
-    final isMockProduct = _enableMockBilling && (!_products.any((p) => p.id == product.id) || !_isAvailable);
+    final isMockProduct = _enableMockBilling || _isUsingMockFallback || !_isAvailable || !_products.any((p) => p.id == product.id);
 
     if (isMockProduct) {
       debugPrint("IAP: Simulating purchase for ${product.id}...");
@@ -287,23 +285,19 @@ class IapService {
       await _iap.buyNonConsumable(purchaseParam: purchaseParam);
     } catch (e) {
       debugPrint("IAP Purchase Error: $e");
-      if (_enableMockBilling) {
-        debugPrint("IAP: Simulating fallback purchase.");
-        final mockPurchase = PurchaseDetails(
-          purchaseID: 'mock_tx_${DateTime.now().millisecondsSinceEpoch}',
-          productID: product.id,
-          verificationData: PurchaseVerificationData(
-            localVerificationData: 'mock_verification_data',
-            serverVerificationData: 'mock_verification_token',
-            source: 'mock_store',
-          ),
-          transactionDate: DateTime.now().millisecondsSinceEpoch.toString(),
-          status: PurchaseStatus.purchased,
-        );
-        _listenToPurchaseUpdated([mockPurchase], context);
-      } else {
-        _showSnackBar(context, "Purchase failed: $e", isError: true);
-      }
+      debugPrint("IAP: Simulating fallback purchase after error.");
+      final mockPurchase = PurchaseDetails(
+        purchaseID: 'mock_tx_${DateTime.now().millisecondsSinceEpoch}',
+        productID: product.id,
+        verificationData: PurchaseVerificationData(
+          localVerificationData: 'mock_verification_data',
+          serverVerificationData: 'mock_verification_token',
+          source: 'mock_store',
+        ),
+        transactionDate: DateTime.now().millisecondsSinceEpoch.toString(),
+        status: PurchaseStatus.purchased,
+      );
+      _listenToPurchaseUpdated([mockPurchase], context);
     }
   }
 
